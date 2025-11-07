@@ -1,0 +1,113 @@
+tbody, td, tfoot, th, thead, tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.heading-text {
+    padding: 2rem;
+}
+
+.cursive-note {
+    font-family: "Dancing Script", cursive;
+    font-weight: 500;   /* makes the curls pop */
+    font-size: 1.4rem;  /* optional: a bit bigger */
+    color: #2c3e50;     /* dark navy so it’s easy to read */
+}
+
+.pyramid-container {
+    display: flex;
+    justify-content: center;
+}
+
+.pyramid {
+  display: flex;
+  flex-direction: column-reverse;   /* ← THIS IS THE MAGIC LINE */
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 320px;
+}
+
+.curriculum-text {
+    color: #2c3e50;
+    padding: 2rem 0;
+
+}
+
+.curriculum-text p {
+  position: relative;
+  padding-left: 2.2rem;          /* space for the bar */
+  text-align: left;              /* looks nicer */
+  max-width: 720px;
+  margin: 0 auto 2rem !important;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* THE MAGIC BAR */
+.curriculum-text p::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  bottom: 0.1em;
+  width: 7px;
+  background: #1a9d8a;           /* ← match your pyramid base colour */
+  border-radius: 4px;
+}
+
+/* Centre the whole block again */
+.curriculum-text {
+  padding: 3rem 1rem;
+}
+
+/* Phone: full-width bar */
+@media (max-width: 576px) {
+  .curriculum-text p {
+    padding-left: 1.8rem;
+    font-size: 1rem;
+  }
+  .curriculum-text p::before { width: 5px; }
+}
+
+@media (max-width: 768px) { .pyramid { width: 100%; } }
+
+.stage { width: 100%; text-align: center; }
+.stage:hover .layer { transform: scale(1.05); }
+
+.layer {
+  position: relative;
+  height: 76px;
+  color: white;
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(100% 100%, 0 100%, 10% 0, 90% 0);
+  transition: transform .2s;
+}
+
+/* Widths now start WIDE at bottom */
+.discipleship { background: #1a9d8a; width: 100%; }
+.disciplines  { background: #55c6b0; width: 91%; margin: 0 auto; }
+.discovery    { background: #88d8c0; width: 82%; margin: 0 auto; }
+.discussion   { background: #b5ead7; width: 73%; margin: 0 auto; }
+.delight      { background: #a8e6cf; width: 64%; margin: 0 auto; }
+
+.desc {
+  margin: 0.5rem 0 1.5rem;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #2c3e50;
+}
+
+/* Desktop: side-by-side */
+@media (min-width: 769px) {
+  .pyramid-container { display: flex; align-items: flex-start; gap: 4rem; }
+  .pyramid { flex: 0 0 320px; }
+  .stage { display: flex; align-items: center; gap: 2rem; }
+  .layer { flex: 0 0 300px; }
+  .desc { flex: 1; text-align: left; margin: 0; padding-left: 1rem; min-width: 100%;}
+}

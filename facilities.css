@@ -8,3 +8,8 @@
     padding: 0 4px;
 }
 
+@media (max-width: 992px) {
+    .mission-text {
+        width: 80%;
+    }
+}

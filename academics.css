@@ -1,0 +1,14 @@
+.academics-text {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.image-container {
+    width: 80% !important;
+}
+
+@media (max-width: 992px) {
+    .image-container {
+    width: 100% !important;
+}
+}

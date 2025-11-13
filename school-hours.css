@@ -7,3 +7,9 @@
     flex-wrap: wrap;
     padding: 0 4px;
 }
+
+@media (max-width: 992px) {
+    .school-hours-text {
+        width: 80%;
+    }
+}

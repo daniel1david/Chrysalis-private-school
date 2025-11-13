@@ -1,0 +1,186 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+h1, h2, h3, h4, .text-logo #logo {
+    font-family: "Roboto", Arial, Tahoma, sans-serif;
+    color: #2c3e50 !important;
+}
+
+.section-title h1{
+  color: #2c3e50;
+  font-weight: 600;
+  padding-top: 2rem;
+}
+
+.section-title p {
+  margin: 3rem 10rem;
+}
+
+.navbar, .navbar-expand-lg {
+  background-color: #86b2a6 !important;
+}
+
+
+/* -------------------------------------------------
+   1. Force hidden menus to be block + invisible
+   ------------------------------------------------- */
+.navbar .dropdown-menu {
+  display: block;               /* keep block for transitions */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);  /* tiny lift */
+  transition: opacity .25s ease, transform .25s ease, visibility .25s;
+  margin-top: 0;                /* remove Bootstrap gap */
+}
+
+/* -------------------------------------------------
+   2. Show on hover (or when .show is added by BS)
+   ------------------------------------------------- */
+.navbar .dropdown:hover > .dropdown-menu,
+.navbar .dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* -------------------------------------------------
+   3. Keep it open while the cursor is over the menu
+   ------------------------------------------------- */
+.navbar .dropdown-menu:hover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* -------------------------------------------------
+   4. (Optional) Remove focus outline on the toggle
+   ------------------------------------------------- */
+.navbar .dropdown-toggle:focus {
+  /* outline: none; */
+  box-shadow: none;
+}
+
+a {
+  color: #333 !important;
+}
+
+.card-group {
+  max-width: 80%;
+}
+
+.card-body {
+  display: flex;
+  justify-content: center;
+}
+
+.card a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .card a .card-title {
+      color: #333;
+    }
+    .card a:hover .card-title {
+      /* color: #00b2d6; */
+      color: #81ceb9;
+    }
+
+.card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+}
+
+/* Push the footer to the bottom */
+main {
+  flex: 1 0 auto; /* Grow to fill available space */
+}
+
+footer {
+  background-color: #86b2a6;
+  height: 5rem;
+  flex-shrink: 0;
+}
+
+.footer-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #86b2a6;
+  /* background-color: #0dcaf0; */
+  height: 3rem;
+  margin: 0;
+}
+
+.list-inline-item a.btn {
+  color: #333 !important;
+  border: 1px solid transparent;
+  transition: border-color .4s ease;
+}
+.list-inline-item a.btn:hover {
+  border-color: #58746c !important;
+}
+
+.btn:hover, button:hover {
+  background-color: white !important;
+}
+
+.butterfly {
+    position: fixed;           /* sticks to the box */
+    width: 7rem;                  /* perfect size */
+    top: 50%;                     /* ← MAGIC: vertical centre */
+    transform: translateY(-50%);  /* pulls it up by half its height */
+    pointer-events: none;
+    opacity: 0.9;
+    z-index: -1;
+}
+.butterfly-left  { left: 0.5rem; }                /* middle-left */
+.butterfly-right { right: 0.5rem; 
+                   transform: translateY(-50%) scaleX(-1); }  /* middle-right + flip */
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+      z-index: 1000;
+      background-color: #fff;
+      border-radius: 5px;
+    }
+    .navbar-nav .nav-item {
+      padding: 0.5rem 1rem;
+    }
+    .navbar-nav .nav-link {
+      padding: 0.5rem 1rem;
+    }
+    .card-group {
+      max-width: 100%;
+    }
+    .footer-text {
+      padding: 2rem;
+    }
+    .section-title p {
+      margin: 2rem 6rem;
+    }
+    .butterfly { 
+      opacity: 0.2;
+      width: 5rem;
+      top: 60%;
+    }
+    .butterfly-left { left: 0rem; }
+    .butterfly-tl { top: 15rem; }
+  }
+
+  @media (max-width: 600px) {
+    .section-title p {
+      margin: 2rem 2rem;
+    }
+  }

@@ -1,0 +1,15 @@
+.uniform-text {
+    width: 60%;
+    margin: 0 auto;
+    color: #2c3e50;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 0 4px;
+}
+
+@media (max-width: 992px) {
+    .uniform-text {
+        padding: 2rem 1rem;
+    }
+}

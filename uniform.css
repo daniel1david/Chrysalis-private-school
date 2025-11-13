@@ -10,6 +10,7 @@
 
 @media (max-width: 992px) {
     .uniform-text {
-        padding: 2rem 1rem;
+        width: 80%;
+        padding: 2rem 0;
     }
 }

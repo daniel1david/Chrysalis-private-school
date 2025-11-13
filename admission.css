@@ -1,0 +1,5 @@
+@media (max-width: 992px) {
+    .table-fullwidth-sm {
+        width: 100% !important;
+    }
+}

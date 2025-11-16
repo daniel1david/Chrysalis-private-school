@@ -45,64 +45,129 @@
     </header>
 
     <main>
-      <div class="section-title text-center py-4">
-        <h1>Chrysalis Private School</h1>
-        <p>Our school aims to be a place where all our learners can develop their full potential in academics, sport and
-          culture within a suburban environment. Whether you are young or old, big or small - there is fun for everyone
-          here, and one thing is certain: Chrysalis has a place in its heart for you!</p>
-      </div>
-
-      <div class="container py-4">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
-          <!-- Academics -->
-          <div class="col">
-            <a href="academics.html" class="text-decoration-none">
-              <div class="card h-100 shadow-sm hover-shadow">
-                <img src="images/83d25fcc-4cb1-427d-9fce-6586d721c4a1.JPG" class="card-img-top" alt="Students working">
-                <div class="card-body text-center">
-                  <h5 class="card-title mb-0">Academics</h5>
-                </div>
-              </div>
-            </a>
+      <!-- ==== HERO CAROUSEL ==== -->
+      <div id="homeCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="images/27dcc1ee-c012-478c-9dba-506a56cb3af1.JPG" class="d-block w-100" alt="students putting on a show" style="height: 70vh; object-fit: cover;">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+              <h1 class="display-4 fw-bold text-white">Welcome to Chrysalis</h1>
+              <p class="lead text-white">Small classes. Big futures.</p>
+            </div>
           </div>
-
-          <!-- High School -->
-          <div class="col">
-            <a href="high-school.html" class="text-decoration-none">
-              <div class="card h-100 shadow-sm hover-shadow">
-                <img src="images/76623afc-ca70-458f-984d-80feeaafa54f.JPG" class="card-img-top" alt="High school students">
-                <div class="card-body text-center">
-                  <h5 class="card-title mb-0">High School</h5>
-                </div>
-              </div>
-            </a>
+          <div class="carousel-item">
+            <img src="images/4b61a35f-1788-420d-b48e-d70cb58e3b83.JPG" class="d-block w-100" alt="Teachers" style="height: 70vh; object-fit: cover;">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+              <h3 class="text-white">Hands-On Learning</h3>
+              <p class="text-white">Teachers that care.</p>
+            </div>
           </div>
-
-          <!-- Foundation Phase -->
-          <div class="col">
-            <a href="foundation-phase.html" class="text-decoration-none">
-              <div class="card h-100 shadow-sm hover-shadow">
-                <img src="images/84b9855a-0c14-4e37-a9f1-9f7280138386.JPG" class="card-img-top" alt="Primary school students">
-                <div class="card-body text-center">
-                  <h5 class="card-title mb-0">Foundation Phase</h5>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <!-- Drama -->
-          <div class="col">
-            <a href="get-involved.html" class="text-decoration-none">
-              <div class="card h-100 shadow-sm hover-shadow">
-                <img src="images/a4de3bac-d4dd-4e3a-909c-366902dd5ac7.JPG" class="card-img-top" alt="Students in drama">
-                <div class="card-body text-center">
-                  <h5 class="card-title mb-0">Get Involved</h5>
-                </div>
-              </div>
-            </a>
+          <div class="carousel-item">
+            <img src="images/ce6b4cd9-1e3b-47d3-a739-be83afebab89.JPG" class="d-block w-100" alt="Prize giving" style="height: 70vh; object-fit: cover;">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+              <h3 class="text-white">Cambridge & GED Pathways</h3>
+              <p class="text-white">World-class qualifications.</p>
+            </div>
           </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
+
+      <!-- ==== QUICK STATS ==== -->
+      <section class="text-white py-4" style="background-color: #86b2a6;">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-4">
+              <h3 class="fw-bold">2013</h3>
+              <p class="mb-0">Established</p>
+            </div>
+            <div class="col-4">
+              <h3 class="fw-bold">100%</h3>
+              <p class="mb-0">Pass Rate</p>
+            </div>
+            <div class="col-4">
+              <h3 class="fw-bold">Under R3600</h3>
+              <p class="mb-0">Per Month</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==== WELCOME SECTION ==== -->
+      <section class="container py-5">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <h2 class="fw-bold">Why Choose Chrysalis?</h2>
+            <p class="lead">Independent. English-medium. Multi-grade classes. We focus on <strong>each child</strong>.</p>
+            <ul class="list-unstyled">
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> Cambridge & GED options</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> STEM, robotics, drama</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> Aftercare & supervised play</li>
+            </ul>
+            <div class="mt-4">
+              <a href="contact.html" class="btn submit btn-lg me-2">Book a Tour</a>
+              <a href="prospectus/Chrysalis Academy Mokopane Prospectus 2025.pdf" target="_blank" class="btn submit btn-lg">
+                <i class="bi bi-download"></i> Prospectus 2025
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6 text-center">
+              <img 
+              src="images/0622a083-3eb1-4e31-bfc9-5edb9572a84e.JPG" 
+              alt="School flyer"
+              style="width:100%; height:100%; object-fit:cover;">
+          </div>
+        </div>
+      </section>
+
+      <!-- ==== TESTIMONIALS ==== -->
+      <section class="bg-light py-5">
+        <div class="container">
+          <h2 class="text-center fw-bold mb-5">What Parents Say</h2>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                  <p class="card-text">"My son loves the small classes. He's thriving!"</p>
+                  <p class="text-end fw-bold text-success mb-0">— Mrs. Nkosi</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                  <p class="card-text">"The facilities ignite inspiration. My daughter loves learning outside!"</p>
+                  <p class="text-end fw-bold text-success mb-0">— Mr. Van der Merwe</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                  <p class="card-text">"Affordable fees and no hidden costs. Highly recommend."</p>
+                  <p class="text-end fw-bold text-success mb-0">— Mrs. Mokoena</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==== FINAL CTA ==== -->
+      <section class="text-white py-5 text-center" style="background-color: #86b2a6;">
+        <div class="container">
+          <h2 class="fw-bold">Ready to Join the Chrysalis Family?</h2>
+          <p class="lead">Limited spaces for 2026. Enquire today.</p>
+          <a href="contact.html" class="btn btn-light btn-lg px-5">Contact Us Now</a>
+        </div>
+      </section>
     </main>
 
     <footer>

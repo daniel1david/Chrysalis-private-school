@@ -50,8 +50,16 @@
       <section class="container py-5 bg-light rounded">
         <h3 class="text-center fw-bold mb-4">Get in Touch</h3>
 
-        <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" class="row g-3 justify-content-center"
+        <!-- ==== CONTACT FORM (Web3Forms - 250 submission per month & Free) ==== -->
+        <form action="https://api.web3forms.com/submit" method="POST" class="row g-3 justify-content-center"
           id="contactForm">
+
+          <!-- Add your secret access key here (hidden) -->
+          <input type="hidden" name="access_key" value="2d09b92a-4992-4535-97e9-1c718fa68044">
+
+          <!-- Redirect to a thank-you page after submit -->
+          <input type="hidden" name="redirect" value="thank-you.html">
+
           <div class="col-md-6">
             <label for="name" class="form-label">Full Name <span class="text-danger">*</span></label>
             <input type="text" name="name" id="name" class="form-control" required>
@@ -59,7 +67,8 @@
 
           <div class="col-md-6">
             <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-            <input type="email" name="_replyto" id="email" class="form-control" required>
+            <input type="email" name="email" id="email" class="form-control" required>
+            <!-- Note: Web3Forms uses name="email" instead of "_replyto" -->
           </div>
 
           <div class="col-md-6">
@@ -83,7 +92,6 @@
             <textarea name="message" id="message" rows="5" class="form-control" required></textarea>
           </div>
 
-          <!-- Honeypot (spam protection) -->
           <div class="visually-hidden">
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
           </div>
@@ -100,14 +108,11 @@
       <div class="container my-5 px-3">
         <div class="row justify-content-center">
           <div class="col-12 col-lg-10 col-xl-8"> <!-- Controls max width -->
-            <div class="ratio ratio-16x9 rounded overflow-hidden shadow-sm border"
-                style="max-height: 28rem;"> <!-- Smaller height in rem -->
+            <div class="ratio ratio-16x9 rounded overflow-hidden shadow-sm border" style="max-height: 28rem;">
+              <!-- Smaller height in rem -->
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7318.063416143937!2d29.02562883476677!3d-24.127050607651388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec731fb3a184723%3A0xc7e962ed270aaa3b!2sChrysalis%20Academy%20Mokopane%20PTY%20(Ltd)!5e1!3m2!1sen!2sza!4v1763277408712!5m2!1sen!2sza"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
+                style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
               </iframe>
             </div>
           </div>
@@ -119,8 +124,7 @@
             <strong>Chrysalis Private School</strong>
           </p>
           <p class="text-muted small">47 Uitloop, Percy Fyfe rd, Mokopane, 0600</p>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=Chrysalis+Private+School+Mokopane" 
-            target="_blank" 
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Chrysalis+Private+School+Mokopane" target="_blank"
             class="btn submit btn-sm mt-2">
             <i class="bi bi-signpost-2"></i> Get Directions
           </a>
@@ -141,7 +145,7 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
 
-   <!-- NAVBAR LOADER SCRIPT -->
+  <!-- NAVBAR LOADER SCRIPT -->
   <script>
     // Reusable function to load any external HTML file into a placeholder script tag
     function loadComponent(file, placeholderId, fallbackHtml = null) {

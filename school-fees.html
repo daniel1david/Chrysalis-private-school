@@ -116,11 +116,8 @@
       </div>
     </main>
 
-    <footer>
-      <p class="footer-text">© 2013 Chrysalis Private School. All Rights Reserved. | 
-        <a href="privacy-policy.html">Privacy Policy</a>
-      </p>
-    </footer>
+    <!-- Footer placeholder -->
+    <script id="replace_with_footer"></script>
 
     <!-- Butterflies -->
     <img src="images/lessButterflies.png" class="butterfly butterfly-left" alt="Butterflies">
@@ -134,30 +131,39 @@
 
   <!-- NAVBAR LOADER SCRIPT -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      fetch('nav.html')
+    // Reusable function to load any external HTML file into a placeholder script tag
+    function loadComponent(file, placeholderId, fallbackHtml = null) {
+      fetch(file)
         .then(res => {
-          if (!res.ok) throw new Error(`Failed to load nav.html: ${res.status}`);
+          if (!res.ok) throw new Error(`Failed to load ${file}: ${res.status}`);
           return res.text();
         })
         .then(text => {
-          const placeholder = document.querySelector("script#replace_with_navbar");
+          const placeholder = document.querySelector(`script#${placeholderId}`);
           if (!placeholder) {
-            console.error("Navbar placeholder not found!");
+            console.error(`${placeholderId} placeholder not found!`);
             return;
           }
           const temp = document.createElement("div");
           temp.innerHTML = text.trim();
-          const nav = temp.firstElementChild;
-          placeholder.parentNode.replaceChild(nav, placeholder);
+          const component = temp.firstElementChild || temp.firstChild;
+          placeholder.parentNode.replaceChild(component, placeholder);
         })
         .catch(err => {
-          console.error("Navbar load error:", err);
-          const placeholder = document.querySelector("script#replace_with_navbar");
-          if (placeholder) {
-            placeholder.outerHTML = '<div class="bg-danger text-white p-2 text-center">Navigation failed to load.</div>';
+          console.error(`${file} load error:`, err);
+          if (fallbackHtml) {
+            const placeholder = document.querySelector(`script#${placeholderId}`);
+            if (placeholder) placeholder.outerHTML = fallbackHtml;
           }
         });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadComponent('nav.html', 'replace_with_navbar',
+        '<div class="bg-danger text-white p-2 text-center">Navigation failed to load.</div>');
+
+      loadComponent('footer.html', 'replace_with_footer',
+        '<div class="bg-danger text-white p-2 text-center">Footer failed to load.</div>');
     });
   </script>
 </body>

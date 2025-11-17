@@ -56,7 +56,7 @@
           <div class="col">
             <div class="card h-100 shadow-sm hover-shadow border-0">
               <img src="images/e9af56ec-a3c6-4650-aeb0-3d895fd9b95c.JPG" class="card-img-top" style="object-fit: cover;" alt="Mrs. Angelique Mostert">
-              <div class="card-body text-center">
+              <div class="card-body text-center d-flex flex-column">
                 <h5 class="card-title mb-1">Mrs. Angelique Mostert</h5>
                 <p class="text-success fw-semibold mb-0">Director, Principal and Senior Teacher</p>
                 <p class="text-muted small">B.A. (Hons) H.D.E</p>
@@ -68,7 +68,7 @@
           <div class="col">
             <div class="card h-100 shadow-sm hover-shadow border-0">
               <img src="images/da4c64af-cbf3-49e2-b3ba-ebb1adbcea55.JPG" class="card-img-top" style="object-fit: cover;" alt="Mrs Larochelle Potgieter">
-              <div class="card-body text-center">
+              <div class="card-body text-center d-flex flex-column">
                 <h5 class="card-title mb-1">Mrs Larochelle Potgieter</h5>
                 <p class="text-success fw-semibold mb-0">Teacher-in-Charge of Junior Academics</p>
                 <p class="text-muted small">B. Ed Foundation Phase</p>
@@ -80,7 +80,7 @@
           <div class="col">
             <div class="card h-100 shadow-sm hover-shadow border-0">
               <img src="images/2540389c-8abe-4f2e-ba0d-4a4291159975.JPG" class="card-img-top" style="object-fit: cover;" alt="Ms Rosinah Matsimbi">
-              <div class="card-body text-center">
+              <div class="card-body text-center d-flex flex-column">
                 <h5 class="card-title mb-1">Ms Rosinah Matsimbi</h5>
                 <p class="text-success fw-semibold mb-0">Senior Assistant & Cleaner</p>
                 <p class="text-muted small">
@@ -97,7 +97,7 @@
           <div class="col">
             <div class="card h-100 shadow-sm hover-shadow border-0">
               <img src="images/18063b06-8c49-4032-83df-0b7a5c149513.JPG" class="card-img-top" style="object-fit: cover;" alt="Ms Maria Mtjeke">
-              <div class="card-body text-center">
+              <div class="card-body text-center d-flex flex-column">
                 <h5 class="card-title mb-1">Ms Maria Mtjeke</h5>
                 <p class="text-success fw-semibold mb-0">Junior Assistant & Cleaner</p>
                 <p class="text-muted small">
@@ -119,11 +119,8 @@
       </div>
     </main>
 
-    <footer>
-      <p class="footer-text">© 2013 Chrysalis Private School. All Rights Reserved. | 
-        <a href="privacy-policy.html">Privacy Policy</a>
-      </p>
-    </footer>
+    <!-- Footer placeholder -->
+    <script id="replace_with_footer"></script>
 
     <!-- Butterflies -->
     <img src="images/lessButterflies.png" class="butterfly butterfly-left" alt="Butterflies">
@@ -137,30 +134,39 @@
 
   <!-- NAVBAR LOADER SCRIPT -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      fetch('nav.html')
+    // Reusable function to load any external HTML file into a placeholder script tag
+    function loadComponent(file, placeholderId, fallbackHtml = null) {
+      fetch(file)
         .then(res => {
-          if (!res.ok) throw new Error(`Failed to load nav.html: ${res.status}`);
+          if (!res.ok) throw new Error(`Failed to load ${file}: ${res.status}`);
           return res.text();
         })
         .then(text => {
-          const placeholder = document.querySelector("script#replace_with_navbar");
+          const placeholder = document.querySelector(`script#${placeholderId}`);
           if (!placeholder) {
-            console.error("Navbar placeholder not found!");
+            console.error(`${placeholderId} placeholder not found!`);
             return;
           }
           const temp = document.createElement("div");
           temp.innerHTML = text.trim();
-          const nav = temp.firstElementChild;
-          placeholder.parentNode.replaceChild(nav, placeholder);
+          const component = temp.firstElementChild || temp.firstChild;
+          placeholder.parentNode.replaceChild(component, placeholder);
         })
         .catch(err => {
-          console.error("Navbar load error:", err);
-          const placeholder = document.querySelector("script#replace_with_navbar");
-          if (placeholder) {
-            placeholder.outerHTML = '<div class="bg-danger text-white p-2 text-center">Navigation failed to load.</div>';
+          console.error(`${file} load error:`, err);
+          if (fallbackHtml) {
+            const placeholder = document.querySelector(`script#${placeholderId}`);
+            if (placeholder) placeholder.outerHTML = fallbackHtml;
           }
         });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadComponent('nav.html', 'replace_with_navbar',
+        '<div class="bg-danger text-white p-2 text-center">Navigation failed to load.</div>');
+
+      loadComponent('footer.html', 'replace_with_footer',
+        '<div class="bg-danger text-white p-2 text-center">Footer failed to load.</div>');
     });
   </script>
 </body>
